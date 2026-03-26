@@ -1,0 +1,21 @@
+# Ignore environment variable files
+.env
+.env.*
+!.env.example  # Good practice: keep a template for others to see required keys
+
+# Ignore virtual environments
+venv/
+.venv/
+env/
+ENV/
+bin/
+lib/
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS-specific files
+.DS_Store
+Thumbs.db
