@@ -102,7 +102,7 @@ def create_vector_store(documents):
     vector_store = Chroma.from_documents(
         documents,
         embedding_model,
-        persist_directory=r'D:/Internship/chroma_db'   #'./chroma_db'
+        persist_directory=r'D:/GitHub/ckb_ai/testing/chroma_db'   #'./chroma_db'
     )
 
     vector_store.persist()
