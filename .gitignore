@@ -23,3 +23,8 @@ Thumbs.db
 
 # jupyter notebook checkpoints
 *.ipynb
+
+# Ignore chromadb files
+chromadb/
+*.bin
+*.sqlite3
