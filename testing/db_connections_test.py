@@ -38,3 +38,9 @@ def test_mongodb_connection():
         print("🔒 MongoDB connection closed successfully")
     else:
         print("⚠️ No connection to close or failed to close")
+
+
+if __name__ == "__main__":
+    test_mongodb_connection()
+
+    
