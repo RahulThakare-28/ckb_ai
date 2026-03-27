@@ -136,3 +136,8 @@ class CollectionToDocumentConverter:
                 yield self.transformer.transform_record(record)
             except Exception as e:
                 print(f"⚠️ Skipping record in stream due to error: {e}")
+
+
+
+
+
