@@ -106,7 +106,11 @@ class ChromaVectorStore:
 
             doc = Document(page_content=content, metadata=metadata or {})
 
-            self._store.add_documents([doc])
+            self._store.add_documents(
+                documents=[doc],
+                ids=[doc_id], #IMPORTANT
+                #embeddings=[embedding]
+                )
 
             self._store
             return doc_id
@@ -161,7 +165,11 @@ class ChromaVectorStore:
             for item in items:
                 content = item["content"]
                 doc_id = self._generate_id(content)
-
+               
+                #check BEFORE inserting is already exists
+                existing = self._store.get(ids=[doc_id])
+                if existing and existing.get("ids"):
+                    continue
                 ids.append(doc_id)
 
                 docs.append(
@@ -171,9 +179,14 @@ class ChromaVectorStore:
                     )
                 )
 
-            self._store.add_documents(docs)
+            #self._store.add_documents(docs)
+            if docs:
+                self._store.add_documents(
+                documents=docs,
+                ids=ids   #  CRITICAL FIX
+            )
 
-            self._store
+            #self._store
             return ids
 
         except Exception as e:
