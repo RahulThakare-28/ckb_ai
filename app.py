@@ -12,7 +12,7 @@ def load_system():
 retriever, chain = load_system()
 
 # ---------------- UI ----------------
-st.set_page_config(page_title="IT-Services", layout="wide")
+st.set_page_config(page_title="IT-Services")
 st.write('IT-Services Company Knowledge Base')
 
 question = st.text_input('Ask a question...')
