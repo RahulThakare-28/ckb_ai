@@ -1,6 +1,6 @@
 
 """
-This is the root package for the ckb_ai project.
+This is the root package for the ckb_ai project. It contains the main modules and subpackages for the project.
 
 """
 
