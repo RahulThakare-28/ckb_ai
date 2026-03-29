@@ -1,0 +1,10 @@
+[theme]
+primaryColor = "#3cdfc7" # A vibrant teal for buttons and highlights
+backgroundColor = "#da9e2f5d" # Deep dark blue/black background
+
+secondaryBackgroundColor = "#e3e7eefb" # Slightly lighter dark for inputs
+textColor = "#ffffff" # Off-white for better readability
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false # Disables the usage popup
