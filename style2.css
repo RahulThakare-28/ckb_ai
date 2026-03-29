@@ -1,0 +1,113 @@
+/* CHAT WRAPPER */
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 6px 0;
+    max-width: 75%;
+}
+
+.chat-wrapper.user {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.chat-wrapper.ai {
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+/* AVATAR ABOVE */
+.avatar-container {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.avatar-container.user {
+    align-self: flex-end;
+}
+
+.avatar-container.ai {
+    align-self: flex-start;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BUBBLES */
+.chat-bubble {
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.user-bubble {
+    border: 1px solid #00d4ff;
+}
+
+.ai-bubble {
+    background-color: #1a1f2b;
+}
+
+/* SIDEBAR HEADER */
+.sidebar-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    /* justify-content: center;    */
+    /* align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0; */
+}
+
+.sidebar-header.company-logo {
+    /* width: 38px; */
+    width: 80%;              /* equal left/right margin */
+    height: 60px;            /* fixed height */
+    object-fit: cover;       /* fill without distortion */
+    border-radius: 6px; 
+    max-width: none !important;
+}
+
+/* PROFILE */
+.sidebar-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+
+}
+
+.sidebar-profile.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* INPUT */
+div[data-testid="stChatInput"] {
+    width: 85% !important;
+    margin: auto;
+}
+
+textarea {
+    border: 1px solid #00d4ff !important;
+    border-radius: 6px !important;
+    padding: 6px !important;
+}
+
+textarea:hover {
+    border-color: #00d4ff !important;
+}
+
+textarea:focus {
+    box-shadow: 0 0 6px #00d4ff !important;
+}
