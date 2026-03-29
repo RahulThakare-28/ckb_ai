@@ -1,0 +1,110 @@
+/* =========================
+   GLOBAL
+========================= */
+.stApp {
+    background-color: #0e1117;
+    color: #e6edf3;
+}
+
+/* =========================
+   CHAT LAYOUT
+========================= */
+.chat-row {
+    display: flex;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.chat-row.user {
+    justify-content: flex-end;
+}
+
+.chat-row.ai {
+    justify-content: flex-start;
+}
+
+/* =========================
+   CHAT BUBBLES
+========================= */
+.chat-bubble {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* User bubble */
+.user-bubble {
+    background-color: transparent;
+    border: 1px solid #00d4ff;
+}
+
+/* AI bubble */
+.ai-bubble {
+    background-color: #1a1f2b;
+}
+
+/* =========================
+   TEXT
+========================= */
+.msg-text {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* =========================
+   AVATAR
+========================= */
+.avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+/* =========================
+   SIDEBAR PROFILE
+========================= */
+.sidebar-profile {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* =========================
+   CHAT INPUT
+========================= */
+div[data-testid="stChatInput"] {
+    width: 85% !important;
+    margin: auto;
+    border-top: none;
+}
+
+/* Input box */
+textarea {
+    border: 1px solid #00d4ff !important;
+    border-radius: 6px !important;
+    padding: 6px !important;
+}
+
+/* Reduce inner gap */
+textarea:focus {
+    box-shadow: 0 0 6px #00d4ff !important;
+}
+
+/* Hover effect */
+textarea:hover {
+    border-color: #00d4ff !important;
+    transition: 0.3s;
+}

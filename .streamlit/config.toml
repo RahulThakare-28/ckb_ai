@@ -1,10 +1,57 @@
+# =========================
+# 🌐 SERVER CONFIG
+# =========================
+[server]
+
+# Run on default port
+port = 8501
+
+# Enable headless mode (required for deployment)
+headless = true
+
+# Prevent file watcher overload (important for ML apps)
+runOnSave = false
+
+# Security: disable CORS issues in controlled env
+enableCORS = false
+
+# Security: enable XSRF protection
+enableXsrfProtection = true
+
+# File upload limit (adjust if needed)
+maxUploadSize = 50
+
+# =========================
+# 🎨 THEME (Professional Dark)
+# =========================
 [theme]
-primaryColor = "#3cdfc7" # A vibrant teal for buttons and highlights
-backgroundColor = "#da9e2f5d" # Deep dark blue/black background
 
-secondaryBackgroundColor = "#e3e7eefb" # Slightly lighter dark for inputs
-textColor = "#ffffff" # Off-white for better readability
-font = "sans serif"
+base = "dark"
+primaryColor = "#00d4ff"
+backgroundColor = "#0e1117"
+secondaryBackgroundColor = "#111827"
+textColor = "#e6edf3"
 
+# =========================
+# ⚡ PERFORMANCE
+# =========================
 [browser]
-gatherUsageStats = false # Disables the usage popup
+
+# Faster UI updates
+gatherUsageStats = false
+
+# =========================
+# 🔒 CLIENT-SIDE SAFETY
+# =========================
+[client]
+
+# Prevents showing raw Python errors to users
+showErrorDetails = false
+
+# =========================
+# 📦 LOGGER (Optional Debug)
+# =========================
+[logger]
+
+level = "info"
+messageFormat = "%(asctime)s %(message)s"
