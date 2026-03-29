@@ -16,7 +16,7 @@ st.markdown("""
     <style>
     .stTextInput input {
         background-color: #e3e7eefb !important;
-        color: #00FF00 !important;
+        color: #000000 !important;
         border:  solid #FF4B4B !important;
     }
     </style>
