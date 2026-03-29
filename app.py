@@ -12,6 +12,17 @@ def load_system():
 retriever, chain = load_system()
 
 # ---------------- UI ----------------
+st.markdown("""
+    <style>
+    .stTextInput input {
+        background-color: #e3e7eefb !important;
+        color: #00FF00 !important;
+        border:  solid #FF4B4B !important;
+    }
+    </style>
+    """, unsafe_allow_html=True
+    )
+
 st.set_page_config(page_title="IT-Services")
 st.write('IT-Services Company Knowledge Base')
 
