@@ -149,7 +149,13 @@ if __name__ == "__main__":
 
     #retriever = vector_store.as_retriever(search_kwargs={'k': 2})
     results = retriever.invoke(question)
+    print("Retrieved documents:")
+    for doc in results:
+        print(doc.page_content)
+
     context = '\n'.join([doc.page_content for doc in results])
+    print("\nGenerated Context for LLM:")
+    print(context)
 
     answer = ask_groq(context, question)
     st.write(answer)
