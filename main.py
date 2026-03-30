@@ -38,7 +38,7 @@ def build_vector_store():
         for doc in converter.convert_stream(stream):
             all_docs.append(doc)
 
-    print(f"📝 Loaded {len(all_docs)} documents")
+    print(f" Loaded {len(all_docs)} documents")
 
     texts = [doc.page_content for doc in all_docs]
     embeddings = embedder.embed_documents(texts)
@@ -56,7 +56,7 @@ def build_vector_store():
     return vector_store, embedder
 
 
-# ✅ LangChain-style retriever wrapper
+#  LangChain-style retriever wrapper
 class Retriever:
     def __init__(self, vector_store, embedder):
         self.vector_store = vector_store
@@ -69,7 +69,7 @@ class Retriever:
 
 def main():
     try:
-        print("🚀 Starting system...\n")
+        print(" Starting system...\n")
 
         vector_store, embedder = build_vector_store()
 
@@ -79,7 +79,7 @@ def main():
         chain = get_llm_chain()
 
         while True:
-            question = input("\n💬 Ask a question (or type 'exit'): ")
+            question = input("\n Ask a question (or type 'exit'): ")
 
             if question.lower() == "exit":
                 break
@@ -100,14 +100,13 @@ def main():
                 "question": question
             })
 
-            #print("\n🤖 Answer:\n", response.content)
-            # Safe handling
+        
             answer = response.content if hasattr(response, "content") else str(response)
 
-            print("\n🤖 Answer:\n", answer)
+            print("\nAI Answer:\n", answer)
 
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
 
 
 if __name__ == "__main__":
