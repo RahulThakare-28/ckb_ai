@@ -3,9 +3,8 @@ import time
 from main import build_vector_store, Retriever
 from llm_models.groq_llm import get_llm_chain
 
-# NEW UI IMPORT
 from ui_components2 import load_css, render_sidebar, render_chat
-#from ui_components3 import load_css
+
 
 # =========================
 # BACKEND (UNCHANGED)
