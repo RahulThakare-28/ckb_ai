@@ -17,11 +17,11 @@ def get_llm_chain():
     """
     parser=StrOutputParser() # extract raw text from llm msgs. convert to simple and clean string
     if not os.environ.get("GROQ_API_KEY"):
-        raise ValueError("❌ GROQ_API_KEY not set")
+        raise ValueError(" GROQ_API_KEY not set")
 
     llm = ChatGroq(
         model="llama-3.3-70b-versatile",
-        temperature=0.1
+        temperature=0.2
     )
 
     prompt = PromptTemplate(
