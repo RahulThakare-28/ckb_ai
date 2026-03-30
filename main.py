@@ -116,18 +116,17 @@ if __name__ == "__main__":
 
 '''
 o/p :
-🚀 Starting system...
-📝 Loaded 8 documents
+ Starting system...
+ Loaded 8 documents
+ Ask a question (or type 'exit'): tell me name of HR
 
-💬 Ask a question (or type 'exit'): tell me name of HR
-
-🤖 Answer:
+ Answer:
  Neha Verma
 
-💬 Ask a question (or type 'exit'): give me all details , you know about th
+ Ask a question (or type 'exit'): give me all details , you know about th
 e neha verma
 
-🤖 Answer:
+ Answer:
  Based on the given data, here are the details about Neha Verma:
 
 - _id: 2
@@ -137,5 +136,5 @@ e neha verma
 - salary: 60000
 - description: Manages recruitment and employee engagement.
 
-💬 Ask a question (or type 'exit'): exit
+ Ask a question (or type 'exit'): exit
 '''
