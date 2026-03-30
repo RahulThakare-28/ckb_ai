@@ -1,7 +1,7 @@
 """
 main.py
 =========================
-Entry point using LangChain invoke()
+Entry point for the CKB AI system. This script initializes the vector store, sets up the retriever and LLM chain, and provides a simple command-line interface for querying the system.
 """
 
 
