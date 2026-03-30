@@ -15,7 +15,7 @@ def get_llm_chain():
     """
     Returns a LangChain RunnableSequence using Groq
     """
-    parser=StrOutputParser() # extract raw text from llm msgs. convert to simple and clean string
+    parser=StrOutputParser() 
     if not os.environ.get("GROQ_API_KEY"):
         raise ValueError(" GROQ_API_KEY not set")
 
