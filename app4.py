@@ -4,7 +4,7 @@ from main import build_vector_store, Retriever
 from llm_models.groq_llm import get_llm_chain
 
 from ui_components2 import load_css, render_sidebar, render_chat
-
+from PIL import Image
 
 # =========================
 # BACKEND (UNCHANGED)
@@ -45,7 +45,9 @@ def query_engine(user_input: str):
 # =========================
 # UI CONFIG
 # =========================
-st.set_page_config(layout="wide", page_title="CKB AI")
+#icon = Image.open("assets/ai-logo.png", size=(32, 32))
+
+st.set_page_config(layout="wide", page_icon="assets/ai-logo.png", page_title="CKB AI")
 
 load_css("style3.css")
 render_sidebar()
