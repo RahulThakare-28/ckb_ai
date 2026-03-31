@@ -185,4 +185,3 @@ streamlit run app.py
 - Run `main.py` at least once before starting the Streamlit app  
 - Ensure MongoDB connection is correct  
 - Verify your Groq API key is valid  
->>>>>>> cd0bdf8fe3d8e91b33d7887111b7e02987dfae98
