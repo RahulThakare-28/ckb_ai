@@ -21,7 +21,7 @@ def get_llm_chain():
 
     llm = ChatGroq(
         model="llama-3.3-70b-versatile",
-        temperature=0.2
+        temperature=0.1
     )
 
     prompt = PromptTemplate(
@@ -31,7 +31,7 @@ You are an intelligent assistant.
 
 Use ONLY the provided context to answer the question.
 If the answer is not present, say:
-"I don't know based on the given data."
+"I don't know, I not have any info about that."
 
 Context:
 {context}
@@ -47,3 +47,8 @@ Answer:
     chain = prompt | llm | parser
 
     return chain
+
+
+
+
+
