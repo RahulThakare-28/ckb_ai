@@ -96,6 +96,92 @@ The system follows a structured RAG pipeline:
 
 ---
 
+
+---
+
+## 💡 Use Cases
+
+- Company internal knowledge systems  
+- Employee information retrieval  
+- HR automation tools  
+- AI-powered enterprise assistants  
+- Document-based Q&A systems  
+
+---
+
+## 📈 Future Enhancements
+
+- Cloud deployment (AWS / Azure)  
+- Real-time database syncing  
+- Authentication & role-based access  
+- Multi-user support  
+- Conversation memory (chat history context)  
+- Improved UI/UX design  
+
+---
+
+## 🎯 Project Outcome
+
+The project successfully demonstrates how **RAG architecture** can be used to build intelligent enterprise systems. It improves data accessibility, reduces manual effort, and enhances decision-making by providing accurate and context-aware responses.
+
+---
+
+
+
 ## 🔐 Environment Variables
 
-Create a `.env` file in the root directory and add:
+To securely manage sensitive configuration details, this project uses a `.env` file.
+
+### Step 1: Create `.env` File
+
+In the root directory of the project, create a file named: .env
+
+
+### Step 2: Add Required Variables
+
+Open the `.env` file and add the following:
+
+- GROQ_API_KEY=your_groq_api_key_here
+- MONGO_URI=your_mongodb_connection_string
+- MONGO_DB_NAME=your_database_name
+
+### Important Notes
+
+- Replace the placeholder values with your actual credentials  
+- Do not share your `.env` file publicly  
+- Add `.env` to your `.gitignore` file to keep it secure  
+- Ensure MongoDB is running and accessible  
+
+---
+
+## ▶️ How to Run the Project
+
+Follow these steps to run the project successfully:
+
+### Step 1: Install Dependencies
+
+pip install -r requirements.txt
+
+### Step 2: Setup Environment Variables
+
+Ensure your `.env` file is properly created and configured.
+
+### Step 3: Run Backend (Data Processing & Vector Store)
+
+python main.py
+
+### Step 4: Run Frontend (Streamlit Application)
+
+streamlit run app.py
+
+### Step 5: Access the Application
+
+- After running Streamlit, a local URL will appear in the terminal  
+- Open the URL in your browser (usually http://localhost:8501)  
+- Start interacting with the chatbot  
+
+### Final Notes
+
+- Run `main.py` at least once before starting the Streamlit app  
+- Ensure MongoDB connection is correct  
+- Verify your Groq API key is valid  
