@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 # Company Knowledge Base AI using RAG
 
 ---
@@ -14,8 +13,7 @@ The system retrieves relevant information from a knowledge base and generates hu
 
 ---
 
-## 🧠 Architecture Diagram
-
+## Web Page
 ![Web Page](assets/chart-page.png)
 
 ---
