@@ -84,7 +84,7 @@ class Retriever:
             return formatted_results
 
         except Exception as e:
-            print(f"❌ Retrieval Error: {e}")
+            print(f" Retrieval Error: {e}")
             return []
         
  

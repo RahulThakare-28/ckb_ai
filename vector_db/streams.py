@@ -11,4 +11,4 @@ def fetch_data_stream(collection, batch_size=100):
         for record in cursor:
             yield record
     except Exception as e:
-        print(f"❌ Error fetching data: {e}")
+        print(f" Error fetching data: {e}")

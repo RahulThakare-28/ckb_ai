@@ -1,7 +1,14 @@
 import streamlit as st
+import time
 from main import build_vector_store, Retriever
 from llm_models.groq_llm import get_llm_chain
 
+from ui_components import load_css, render_sidebar, render_chat
+
+
+# =========================
+# BACKEND 
+# =========================
 @st.cache_resource
 def load_system():
     vector_store, embedder = build_vector_store()
@@ -11,52 +18,77 @@ def load_system():
 
 retriever, chain = load_system()
 
-# ---------------- UI ----------------
-st.markdown("""
-    <style>
-    .stTextInput input {
-        background-color: #e3e7eefb !important;
-        color: #000000 !important;
-        border:  solid #FF4B4B !important;
-    }
-    </style>
-    """, unsafe_allow_html=True
-    )
 
-st.set_page_config(page_title="IT-Services")
-st.write('IT-Services Company Knowledge Base')
-
-question = st.text_input('Ask a question...')
-submit = st.button('Submit')
-
-# ---------------- Logic ----------------
-
-if submit and question.strip():  
-
+def query_engine(user_input: str):
     try:
-        # Step 1: Retrieve
-        results = retriever.invoke(question)
+        results = retriever.invoke(user_input)
 
-        # Step 2: Build context
         context = "\n".join([
             str(doc["content"]) if isinstance(doc, dict)
             else str(doc.page_content)
             for doc in results
         ])
 
-        # Step 3: LLM invoke
         response = chain.invoke({
             "context": context,
-            "question": question
+            "question": user_input
         })
 
-        answer = response.content if hasattr(response, "content") else str(response)
-
-        st.write(answer)
+        if hasattr(response, "content"):
+            return response.content
+        return str(response)
 
     except Exception as e:
-        st.error(f"❌ Error: {e}")
+        return f"Error: {str(e)}"
 
 
-elif submit:
-    st.warning("Please enter a question...!!!")
+# =========================
+# UI CONFIG
+# =========================
+
+
+st.set_page_config(layout="wide", page_icon="assets/ai-logo.png", page_title="CKB AI")
+
+load_css("style.css")
+render_sidebar()
+
+# =========================
+# SESSION STATE
+# =========================
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# =========================
+# CHAT
+# =========================
+render_chat(st.session_state.messages)
+
+# =========================
+# INPUT
+# =========================
+user_input = st.chat_input("Ask about projects, employees, or clients...")
+
+if user_input:
+
+    st.session_state.messages.append({
+        "role": "user",
+        "content": user_input
+    })
+
+    with st.chat_message("assistant"):
+        placeholder = st.empty()
+        full_response = ""
+
+        result = query_engine(user_input)
+
+        for char in result:
+            full_response += char
+            placeholder.markdown(full_response)
+            time.sleep(0.003)
+
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": full_response
+    })
+
+    st.rerun()

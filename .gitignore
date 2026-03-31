@@ -28,3 +28,9 @@ Thumbs.db
 chromadb/
 *.bin
 *.sqlite3
+
+#streamlit files
+.streamlit/
+
+#testing files
+testing/

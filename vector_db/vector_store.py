@@ -17,7 +17,7 @@ Design Principles:
 import hashlib
 from typing import List, Dict, Any, Optional
 
-#from langchain_community.vectorstores import Chroma
+
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
@@ -61,41 +61,7 @@ class ChromaVectorStore:
         except Exception as e:
             raise VectorStoreError(f"Failed to generate ID: {e}")
 
-    # ==========================
-    # Public APIs
-    # ==========================
 
-    # def add(
-    #     self,
-    #     content: str,
-    #     embedding: List[float],
-    #     metadata: Optional[Dict[str, Any]] = None
-    # ) -> str:
-    #     """
-    #     Add embedding to Chroma (idempotent)
-    #     """
-    #     try:
-    #         doc_id = self._generate_id(content)
-
-    #         # Check if exists
-    #         #existing = self._store._collection.get(ids=[doc_id])
-    #         #if existing and existing.get("ids"):
-    #         existing = self._store.get(ids=[doc_id])
-    #         if existing is not None and len(existing.get("ids", [])) > 0:
-    #             return doc_id
-
-    #         self._store.add_documents(
-    #             ids=[doc_id],
-    #             embeddings=[embedding],
-    #             documents=[content],
-    #             metadatas=[metadata or {}]
-    #         )
-
-    #         self._store.persist()
-    #         return doc_id
-
-    #     except Exception as e:
-    #         raise VectorStoreError(f"Failed to add vector: {e}")
     def add(self, content: str, embedding: List[float],     metadata: Optional[Dict[str, Any]] = None) -> str:
         try:
             doc_id = self._generate_id(content)
@@ -118,44 +84,6 @@ class ChromaVectorStore:
         except Exception as e:
             raise VectorStoreError(f"Failed to add vector: {e}")
 
-    # def bulk_add(self, items: List[Dict[str, Any]]) -> List[str]:
-    #     """
-    #     Bulk insert
-    #     items = [
-    #         {
-    #             "content": str,
-    #             "embedding": [...],
-    #             "metadata": {...}
-    #         }
-    #     ]
-    #     """
-    #     try:
-    #         ids = []
-    #         embeddings = []
-    #         documents = []
-    #         metadatas = []
-
-    #         for item in items:
-    #             content = item["content"]
-    #             doc_id = self._generate_id(content)
-
-    #             ids.append(doc_id)
-    #             embeddings.append(item["embedding"])
-    #             documents.append(content)
-    #             metadatas.append(item.get("metadata", {}))
-
-    #         self._store.add_documents(
-    #             ids=ids,
-    #             embeddings=embeddings,
-    #             documents=documents,
-    #             metadatas=metadatas
-    #         )
-
-    #         self._store.persist()
-    #         return ids
-
-    #     except Exception as e:
-    #         raise VectorStoreError(f"Bulk insert failed: {e}")
 
     def bulk_add(self, items: List[Dict[str, Any]]) -> List[str]:
         try:
@@ -186,7 +114,7 @@ class ChromaVectorStore:
                 ids=ids   #  CRITICAL FIX
             )
 
-            #self._store
+          
             return ids
 
         except Exception as e:
@@ -206,23 +134,12 @@ class ChromaVectorStore:
         Perform similarity search using embedding (NOT raw query)
         """
         try:
-            # results = self._store.query(
-            #     query_embeddings=[query_embedding],
-            #     n_results=k
+            
             results = self._store.similarity_search_by_vector(
                 embedding=query_embedding,
                 k=k
             )
 
-            # output = []
-            # for i in range(len(results.get("ids", [])[0])):
-            #     output.append({
-            #         "id": results["ids"][0][i],
-            #         "content": results["documents"][0][i],
-            #         "metadata": results["metadatas"][0][i]
-            #     })
-
-            # return output
             output = []
             for doc in results:
                 output.append({
@@ -243,7 +160,7 @@ class ChromaVectorStore:
                     "content": result["documents"][0],
                     "metadata": result["metadatas"][0]
                 }
-            #return None
+         
             return result is not None and len(result.get("ids", [])) > 0
         except Exception as e:
             raise VectorStoreError(f"Get failed: {e}")

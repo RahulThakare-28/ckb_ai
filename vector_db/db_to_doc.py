@@ -67,7 +67,7 @@ class DocumentTransformer:
                 doc = self.transform_record(record)
                 documents.append(doc)
             except Exception as e:
-                print(f"⚠️ Skipping record due to error: {e}")
+                print(f" Skipping record due to error: {e}")
 
         return documents
 
@@ -135,7 +135,7 @@ class CollectionToDocumentConverter:
             try:
                 yield self.transformer.transform_record(record)
             except Exception as e:
-                print(f"⚠️ Skipping record in stream due to error: {e}")
+                print(f" Skipping record in stream due to error: {e}")
 
 
 

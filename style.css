@@ -1,5 +1,5 @@
 /* =========================
-   GLOBAL
+   GLOBAL APP (SAFE)
 ========================= */
 .stApp {
     background-color: #0e1117;
@@ -7,38 +7,131 @@
 }
 
 /* =========================
-   CHAT LAYOUT
+   SIDEBAR LAYOUT (ISOLATED)
 ========================= */
-.chat-row {
+section[data-testid="stSidebar"] > div {
     display: flex;
-    width: 100%;
-    margin: 8px 0;
-}
-
-.chat-row.user {
-    justify-content: flex-end;
-}
-
-.chat-row.ai {
-    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
 }
 
 /* =========================
-   CHAT BUBBLES
+   COMPANY LOGO (TOP)
 ========================= */
-.chat-bubble {
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-header img {
+    display: block;
+    width: 100%;
+    max-width: 200px;       /* prevents touching edges */
+    height: auto;           /* maintain aspect ratio */
+    object-fit: contain;    /* no crop */
+
+    margin: 0 auto;
+
+    /* max-width: none !important; /* override Streamlit */
+}
+
+/* =========================
+   SYSTEM STATUS SPACING
+========================= */
+section[data-testid="stSidebar"] .stAlert {
+    margin-bottom: 12px;
+}
+
+/* =========================
+   PROFILE (BOTTOM)
+========================= */
+.sidebar-profile {
+    margin-top: auto;                 /* push to bottom */
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+}
+
+/* Profile image */
+.sidebar-profile img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    margin: 0 auto;
+
+    max-width: none !important;
+}
+
+/* Profile name */
+.profile-name {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Logout button spacing */
+.sidebar-profile button {
+    margin-top: 10px;
+}
+
+/* =========================
+   CHAT UI (UNCHANGED + SAFE)
+========================= */
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 6px 0;
     max-width: 75%;
+}
+
+.chat-wrapper.user {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.chat-wrapper.ai {
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+/* Avatar above bubble */
+.avatar-container {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.avatar-container.user {
+    align-self: flex-end;
+}
+
+.avatar-container.ai {
+    align-self: flex-start;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chat bubbles */
+.chat-bubble {
     padding: 10px 14px;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 /* User bubble */
 .user-bubble {
-    background-color: transparent;
     border: 1px solid #00d4ff;
+    background-color: transparent;
 }
 
 /* AI bubble */
@@ -47,48 +140,11 @@
 }
 
 /* =========================
-   TEXT
-========================= */
-.msg-text {
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-/* =========================
-   AVATAR
-========================= */
-.avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-}
-
-/* =========================
-   SIDEBAR PROFILE
-========================= */
-.sidebar-profile {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.profile-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
-.profile-name {
-    margin-top: 8px;
-    font-size: 14px;
-}
-
-/* =========================
-   CHAT INPUT
+   CHAT INPUT (POLISHED)
 ========================= */
 div[data-testid="stChatInput"] {
     width: 85% !important;
     margin: auto;
-    border-top: none;
 }
 
 /* Input box */
@@ -98,13 +154,25 @@ textarea {
     padding: 6px !important;
 }
 
-/* Reduce inner gap */
-textarea:focus {
-    box-shadow: 0 0 6px #00d4ff !important;
-}
-
 /* Hover effect */
 textarea:hover {
     border-color: #00d4ff !important;
     transition: 0.3s;
+}
+
+/* Focus glow */
+textarea:focus {
+    box-shadow: 0 0 6px #00d4ff !important;
+}
+
+/* =========================
+   SCROLLBAR (OPTIONAL POLISH)
+========================= */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 10px;
 }

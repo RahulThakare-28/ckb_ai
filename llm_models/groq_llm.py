@@ -1,7 +1,7 @@
 """
 groq_llm.py
 =========================
-LangChain-based Groq LLM wrapper using invoke()
+LangChain-based Groq LLM 
 """
 
 import os
