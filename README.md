@@ -111,8 +111,7 @@ The system follows a structured RAG pipeline:
 
 ## 📈 Future Enhancements
 
-- Cloud deployment (AWS / Azure)  
-- Real-time database syncing  
+- Cloud deployment (AWS / Azure)   
 - Authentication & role-based access  
 - Multi-user support  
 - Conversation memory (chat history context)  
